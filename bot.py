@@ -4,6 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
 
+tf.get_logger().setLevel('ERROR')
+
 IMG_HEIGHT = int(662)
 IMG_WIDTH = int(1136)
 COUNTRIES = ['Aland', 'Albania', 'American Samoa', 'Andorra', 'Antarctica', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Bangladesh', 'Belarus', 'Belgium', 'Bermuda', 'Bhutan', 'Bolivia', 'Botswana', 'Brazil', 'Bulgaria', 'Cambodia', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Curacao', 'Czechia', 'Denmark', 'Dominican Republic', 'Ecuador', 'Egypt', 'Estonia', 'Eswatini', 'Faroe Islands', 'Finland', 'France', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Guam', 'Guatemala', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Japan', 'Jersey', 'Jordan', 'Kenya', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Lithuania', 'Luxembourg', 'Macao', 'Madagascar', 'Malaysia', 'Malta', 'Martinique', 'Mexico', 'Monaco', 'Mongolia', 'Montenegro', 'Mozambique', 'Myanmar', 'Nepal', 'Netherlands', 'New Zealand', 'Nigeria', 'North Macedonia', 'Northern Mariana Islands', 'Norway', 'Pakistan', 'Palestine', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn Islands', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russia', 'San Marino', 'Senegal', 'Serbia', 'Singapore', 'Slovakia', 'Slovenia', 'South Africa', 'South Georgia and South Sandwich Islands', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Svalbard and Jan Mayen', 'Sweden', 'Switzerland', 'Taiwan', 'Tanzania', 'Thailand', 'Tunisia', 'Turkey', 'US Virgin Islands', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Venezuela', 'Vietnam']
@@ -54,18 +56,6 @@ def train(dataset_dir):
 
     history = model.fit(train_ds, validation_data=val_ds, epochs=EPOCHS, callbacks=[earlyStop, checkpointSave])
 
-    # Visualize training results
-    acc = history.history['accuracy']
-    val_acc = history.history['val_accuracy']
-    epochs_range = range(EPOCHS)
-    plt.figure(figsize=(8, 8))
-    plt.subplot(1, 2, 1)
-    plt.plot(epochs_range, acc, label='Training Accuracy')
-    plt.plot(epochs_range, val_acc, label='Validation Accuracy')
-    plt.legend(loc='lower right')
-    plt.title('Training and Validation Accuracy')
-    plt.show()
-
     return model
 
 
@@ -81,17 +71,12 @@ def predict(image_dir):
     prediction = COUNTRIES[np.argmax(confidence)]
     coordinates = COORDINATES[prediction]
 
-    ind = np.asarray(tf.nn.top_k(predictions, k=5).indices.numpy()[0])
-    for i in ind:
-        print(COUNTRIES[i])
-
     return prediction, coordinates, confidence
 
 
 
 if __name__ == '__main__':
     try:
-        tf.keras.models.load_model('model')
         sys.argv[1]
     except:
         train("/Users/taharhidouani/Downloads/dataset/")
