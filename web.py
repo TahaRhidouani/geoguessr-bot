@@ -9,6 +9,11 @@ def local():
 
 def multiplayer(game_id):
     # TODO
+    if game_id == "":
+        pass
+    else:
+        pass
+    
     driver = webdriver.Chrome()
     driver.get()
     country, coordinates, _ = bot.predict("/screenshot.png")
