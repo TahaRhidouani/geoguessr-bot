@@ -8,15 +8,15 @@ def menu():
     if choice == "1":
         web.local()
     elif choice == "2":
-        web.multiplayer()
+        game_id = input("Please enter the game ID, or enter to make the robot host: ")
+        web.multiplayer(game_id)
     elif choice == "3":
         img_dir = input("Please enter your image directory: ")
         print(bot.predict(img_dir))
     elif choice=="Q" or choice=="q":
         sys.exit
     else:
-        print("You must only select either A or B")
-        print("\nPlease try again")
+        print("\nInvalid input. Please try again")
         menu()
 
 if __name__ == '__main__':

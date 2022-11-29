@@ -7,7 +7,7 @@ def local():
     driver.get()
     country, coordinates, _ = bot.predict("/screenshot.png")
 
-def multiplayer():
+def multiplayer(game_id):
     # TODO
     driver = webdriver.Chrome()
     driver.get()
