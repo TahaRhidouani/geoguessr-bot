@@ -3,15 +3,15 @@ import web
 import bot
 
 def menu():
-    choice = input("A: Run local session\nB: Run multiplayer session\nC: Manual mode\nQ: Quit\n\nPlease enter your choice: ")
+    choice = input("1: Run local session\n2: Run multiplayer session\n3: Manual mode\nQ: Quit\n\nPlease enter your choice: ")
 
-    if choice == "A" or choice =="a":
+    if choice == "1":
         web.local()
-    elif choice == "B" or choice =="b":
+    elif choice == "2":
         web.multiplayer()
-    elif choice == "C" or choice =="c":
+    elif choice == "3":
         img_dir = input("Please enter your image directory: ")
-        bot.predict(img_dir)
+        print(bot.predict(img_dir))
     elif choice=="Q" or choice=="q":
         sys.exit
     else:

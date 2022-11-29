@@ -88,7 +88,7 @@ def predict(image_dir):
     prediction = COUNTRIES[np.argmax(confidence)]
     coordinates = COORDINATES[prediction]
 
-    return prediction, coordinates, confidence
+    return prediction, coordinates, 100 * np.max(confidence)
 
 
 
@@ -99,4 +99,4 @@ if __name__ == '__main__':
         train("/Users/taharhidouani/Downloads/dataset/")
     else:
         prediction, coordinates, confidence = predict(sys.argv[1])
-        print(prediction, coordinates, 100 * np.max(confidence))
+        print(prediction, coordinates, confidence)
