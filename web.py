@@ -1,7 +1,15 @@
 import bot
+from selenium import webdriver
 
-def run():
+def local():
+    # TODO
+    driver = webdriver.Chrome()
+    driver.get()
     country, coordinates, _ = bot.predict("/screenshot.png")
 
-if __name__ == '__main__':
-    run()
+def multiplayer():
+    # TODO
+    driver = webdriver.Chrome()
+    driver.get()
+    country, coordinates, _ = bot.predict("/screenshot.png")
+    
