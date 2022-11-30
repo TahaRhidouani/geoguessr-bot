@@ -1,9 +1,8 @@
-import sys
 import web
 import bot
 
 def menu():
-    choice = input("1: Run local session\n2: Run multiplayer session\n3: Manual mode\nQ: Quit\n\nPlease enter your choice: ")
+    choice = input("1: Start local game\n2: Start multiplayer game\n3: Manual mode\nQ: Quit\n\nPlease enter your choice: ")
 
     if choice == "1":
         web.local()
@@ -14,7 +13,7 @@ def menu():
         img_dir = input("Please enter your image directory: ")
         print(bot.predict(img_dir))
     elif choice=="Q" or choice=="q":
-        sys.exit
+        exit()
     else:
         print("\nInvalid input. Please try again")
         menu()

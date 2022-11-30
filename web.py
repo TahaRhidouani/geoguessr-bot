@@ -2,18 +2,18 @@ import bot
 from selenium import webdriver
 
 def local():
-    # TODO
     driver = webdriver.Chrome()
     driver.get()
     country, coordinates, _ = bot.predict("/screenshot.png")
 
 def multiplayer(game_id):
-    # TODO
     if game_id == "":
+        # Create game and print code
         pass
     else:
+        # Join game
         pass
-    
+
     driver = webdriver.Chrome()
     driver.get()
     country, coordinates, _ = bot.predict("/screenshot.png")
