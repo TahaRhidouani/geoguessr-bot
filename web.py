@@ -22,7 +22,8 @@ def multiplayer(gameUrl):
     email, password = getLoginInfo()
     driver.get("https://www.geoguessr.com/signin?target=%2Fmaps%2Fworld%2Fplay")
     driver.find_element("name", "email").send_keys(email)
-    driver.find_element("name", "password").send_keys(password).submit()
+    driver.find_element("name", "password").send_keys(password)
+    driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div/form/div/div[3]/div/button/div").click()
     WebDriverWait(driver, 15).until(expected_conditions.presence_of_element_located((By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/div[5]/div/div[1]/div[2]/input")))
 
     if gameUrl == "":
