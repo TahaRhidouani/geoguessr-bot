@@ -45,4 +45,3 @@ def multiplayer(gameUrl):
 
     # driver.save_screenshot("screenshot.png")
     # country, coordinates, _ = bot.predict("screenshot.png")
-    # if os.path.isfile("screenshot.png"): os.remove("screenshot.png")
