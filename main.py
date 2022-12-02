@@ -7,8 +7,8 @@ def menu():
     if choice == "1":
         web.local()
     elif choice == "2":
-        game_id = input("Please enter the game ID, or press enter to make the robot host: ")
-        web.multiplayer(game_id)
+        gameUrl = input("Please enter the game URL, or press enter to make the bot host: ")
+        web.multiplayer(gameUrl)
     elif choice == "3":
         img_dir = input("Please enter your image directory: ")
         print(bot.predict(img_dir))
