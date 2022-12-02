@@ -1,6 +1,4 @@
 import bot
-import os
-import time
 
 from seleniumwire import webdriver
 from selenium.webdriver.common.by import By
