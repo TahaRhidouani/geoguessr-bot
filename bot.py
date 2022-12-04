@@ -18,7 +18,7 @@ def train(dataset_dir, epochs=100):
     COUNTRIES = train_ds.class_names
 
     try:
-        model = tf.keras.models.load_model('model')
+        model = tf.keras.models.load_model(sys.path[0] + '/model')
     except:
         model = tf.keras.models.Sequential([
             tf.keras.layers.RandomFlip(mode='horizontal'),
@@ -48,7 +48,7 @@ def train(dataset_dir, epochs=100):
     model.compile(optimizer='adam', loss=tf.keras.losses.SparseCategoricalCrossentropy(), metrics=['accuracy'])
 
     earlyStop = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=5)
-    checkpointSave = tf.keras.callbacks.ModelCheckpoint(filepath="model", verbose=1)
+    checkpointSave = tf.keras.callbacks.ModelCheckpoint(filepath=sys.path[0] + "/model", verbose=1)
 
     model.fit(train_ds, validation_data=val_ds, epochs=epochs, callbacks=[earlyStop, checkpointSave])
 
@@ -56,7 +56,7 @@ def train(dataset_dir, epochs=100):
 
 
 def predict(image_dir):
-    model = tf.keras.models.load_model('model')
+    model = tf.keras.models.load_model(sys.path[0] + '/model')
     image = tf.keras.utils.load_img(image_dir, target_size=(IMG_HEIGHT, IMG_WIDTH))
 
     image_array = tf.keras.utils.img_to_array(image)

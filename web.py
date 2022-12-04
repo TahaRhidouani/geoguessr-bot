@@ -22,7 +22,7 @@ def play(gameUrl = "", multiplayer = False):
     print("Logging in...")
     try:
         driver.get("https://www.geoguessr.com/maps/world/play")
-        cookies = pickle.load(open("cookies", "rb"))
+        cookies = pickle.load(open(os.sys.path[0] + "/cookies", "rb"))
         for cookie in cookies: driver.add_cookie(cookie)
         driver.refresh()
         WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/div[5]/div/div[1]/div[2]/input")))
@@ -35,7 +35,7 @@ def play(gameUrl = "", multiplayer = False):
         driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div/form/div/div[3]/div/button/div").click()
         WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/div[5]/div/div[1]/div[2]/input")))
         cookies = driver.get_cookies()
-        pickle.dump(cookies, open("cookies","wb"))
+        pickle.dump(cookies, open(os.sys.path[0] + "/cookies","wb"))
 
     print("Creating game...")
     if multiplayer:
