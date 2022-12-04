@@ -53,6 +53,7 @@ def play(gameUrl = "", multiplayer = False):
             driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/button").click()
         else:
             driver.get(gameUrl)
+            driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/main/div/div[2]/div[1]/div/div[3]/div/div/button").click()
     else:
         driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/div[5]/div/div[1]/div[2]/input").click()
         driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/div[5]/div/div[2]/div/div[2]/label[1]/div[3]/input").click()
