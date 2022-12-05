@@ -51,7 +51,6 @@ def play(gameUrl = "", multiplayer = False):
             inviteLink = driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/section/article/div/span/input")
             print("The game link is: " + inviteLink.get_attribute('value'))
             driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/button").click()
-        else:
             driver.get(gameUrl)
             driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/main/div/div[2]/div[1]/div/div[3]/div/div/button").click()
     else:
@@ -71,11 +70,11 @@ def play(gameUrl = "", multiplayer = False):
     token = requests.get("https://geoguessr.com/api/v3/social/events/unfinishedgames", headers={"Content-Type":"application/json","Cookie":"devicetoken="+deviceToken+"; G_ENABLED_IDPS=google; _ncfa="+ncfa+";"}).json()["games"][0]["token"]
 
     for i in range(5):
+        print("Round " + str(i+1) + "/5", end='\r')
         WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.XPATH, "//*[@id='__next']/div/div/main/div/div/div[4]/div/div[4]/button")))
         time.sleep(4)
         driver.save_screenshot("screenshot.png")
         coordinates = bot.predict("screenshot.png")[1]
-        print("Round " + str(i+1) + "/5", end='\r')
         if os.path.isfile("screenshot.png"): os.remove("screenshot.png")
         requests.post("https://www.geoguessr.com/api/v3/games/"+token, json={"token":token,"lat":coordinates[0],"lng":coordinates[1],"timedOut":False}, headers={"Content-Type":"application/json","Cookie":"devicetoken="+deviceToken+"; G_ENABLED_IDPS=google; _ncfa="+ncfa+";"})
         driver.refresh()
