@@ -51,6 +51,7 @@ def play(gameUrl = "", multiplayer = False):
             inviteLink = driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/section/article/div/span/input")
             print("The game link is: " + inviteLink.get_attribute('value'))
             driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/div[1]/main/div/div[2]/div/div/button").click()
+        else:
             driver.get(gameUrl)
             driver.find_element(By.XPATH, "//*[@id='__next']/div/div[2]/main/div/div[2]/div[1]/div/div[3]/div/div/button").click()
     else:
