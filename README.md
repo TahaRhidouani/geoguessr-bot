@@ -3,8 +3,8 @@
 ### Main features:
 
 - Neural Network trained on over 50,000 Google Streetview images
-- Better perfoming than the average human with over 50% accuracy for guessing correct country and about 75% accuracy to get over 2000 pts per guess
-- Bot can automatically start a local game (Free) or a multiplayer game (Requires a geoguessr Pro account)
+- Better perfoming than the average human with 50% accuracy for guessing correct country, and gets over 2000 pts in geoguessr with 75% accuracy
+- The bot can automatically start a local game (Free) or a multiplayer game (Requires a geoguessr Pro account)
 - Option to manually feed an image, and returns the corresponding country and coordinates
 
 <br />
