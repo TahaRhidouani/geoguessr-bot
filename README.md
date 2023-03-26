@@ -9,8 +9,8 @@
 
 <br />
 
-**Automatically analyses the Streetview image and makes a guess** ![home](https://github.com/TahaInc/geoguessr-ai-bot/blob/main/images/screenshot_1.png?raw=true)
+**Automatically analyses the Streetview image and makes a guess** ![home](https://github.com/TahaInc/geoguessr-bot/blob/main/images/screenshot_1.png?raw=true)
 
-**Performs better than the average human** ![login](https://github.com/TahaInc/geoguessr-ai-bot/blob/main/images/screenshot_2.png?raw=true)
+**Performs better than the average human** ![login](https://github.com/TahaInc/geoguessr-bot/blob/main/images/screenshot_2.png?raw=true)
 
-**A intuitive scripts automatically runs the bot** ![order](https://github.com/TahaInc/geoguessr-ai-bot/blob/main/images/screenshot_3.png?raw=true)
+**A intuitive scripts automatically runs the bot** ![order](https://github.com/TahaInc/geoguessr-bot/blob/main/images/screenshot_3.png?raw=true)
