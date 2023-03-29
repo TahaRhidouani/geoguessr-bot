@@ -1,4 +1,4 @@
-# Geoguessr AI Bot
+# Geoguessr Bot
 
 ### Main features:
 
